@@ -23,8 +23,8 @@ return new class extends Migration
             $table->string('page_nos');
             $table->string('issue_type');
             $table->string('created_by');
-            $table->string('modified_by');
-            $table->string('status');
+            $table->string('modified_by')->nullable();
+            $table->string('status')->default('active');
             $table->timestamps();
         });
     }

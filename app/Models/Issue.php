@@ -17,8 +17,11 @@ class Issue extends Model
         'year',
         'paper_title',
         'authors',
+        'created_by',
+        'modified_by',
         'page_nos',
-        'issue_type'
+        'issue_type',
+        'status'
     ];
     protected $casts = [
         'created_at' => 'datetime',

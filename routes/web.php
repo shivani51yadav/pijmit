@@ -26,8 +26,7 @@ Route::get('/internationalAdvisoryCommittee', [PageController::class,'internatio
 Route::get('/publicationEthics', [PageController::class,'publicationEthics']);
 Route::get('/reviewPolicy', [PageController::class,'reviewPolicy']);
 Route::get('/subscription', [PageController::class,'subscription']);
+Route::get('/currentIssue', [PageController::class,'currentIssue']);
+Route::get('/oldIssue', [PageController::class,'oldIssue']);
 Route::get('/form', [PageController::class,'form']);
-
-
-
-
+Route::get('/issue/search/{keyword}',[IssueController::class,'search']);

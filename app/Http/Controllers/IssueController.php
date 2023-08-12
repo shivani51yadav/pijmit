@@ -78,4 +78,16 @@ class IssueController extends Controller
             ], 404);
         }
     }
+
+    public function search($keyword)
+    {
+        $issues = Issue::where('paper_title', 'like', '%' . $keyword . '%')->paginate(5);
+        if ($issues) {
+            return response()->json($issues);
+        } else {
+            return response()->json([
+                "message" => "issue not found"
+            ], 404);
+        }
+    }
 }

@@ -38,4 +38,10 @@ class PageController extends Controller
     public function subscription(){
         return view('subscription');
     }
+    public function currentIssue(){
+        return view('CurrentIssue');
+    }
+    public function oldIssue(){
+        return view('OldIssue');
+    }
 }

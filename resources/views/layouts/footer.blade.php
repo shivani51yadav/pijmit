@@ -1,19 +1,18 @@
 
 <footer>
-    {{-- <h1 class="text-center">Thankyou for visiting.</h1> --}}
-        <!-- Footer -->
+
         <footer class="bg-white dark:bg-gray-900 pt-10 lg:pr-1">
             <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
-              <div class="md:flex md:justify-between">
+              <div class="md:flex md:justify-between md:space-x-16">
                 <div class="mb-6 md:mb-0">
-                  <a href="https://flowbite.com/" class="flex items-center">
+                  <a href="#" class="flex items-center">
                     <img
                       src="https://tse4.explicit.bing.net/th?id=OIP.GHvjvzSUaoMzAku2uqDcjgHaHa&pid=Api&P=0&h=180"
-                      class="h-8 mr-3"
+                      class="h-8 mr-3 inline-block align-bottom"
                       alt="PIJMIT Logo"
                     />
                     <span
-                      class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"
+                      class=" align-bottom text-lg md:text-xl   font-semibold whitespace-nowrap dark:text-white"
                       >PIJMIT</span
                     >
                   </a>
@@ -27,13 +26,13 @@
                     </h2>
                     <ul class="text-gray-500 dark:text-gray-400 font-medium">
                       <li class="mb-4">
-                        <a href="https://flowbite.com/" class="hover:underline"
+                        <a href="/about" class="hover:underline"
                           >About</a
                         >
                       </li>
                       <li>
-                        <a href="https://tailwindcss.com/" class="hover:underline"
-                          >Editorial Board</a
+                        <a href="/editorInChief" class="hover:underline"
+                          >Editor in Chief</a
                         >
                       </li>
                     </ul>
@@ -47,14 +46,14 @@
                     <ul class="text-gray-500 dark:text-gray-400 font-medium">
                       <li class="mb-4">
                         <a
-                          href="./ReviewPolicy.html"
+                          href="/reviewPolicy"
                           class="hover:underline"
                           >Review Policy</a
                         >
                       </li>
                       <li>
                         <a
-                          href="./GuidelinesForAuthor.html"
+                          href="/guidelinesForAuthor"
                           class="hover:underline"
                           >Guidelines for Author</a
                         >
@@ -76,7 +75,7 @@
                         >
                       </li>
                       <li>
-                        <a href="#" class="hover:underline break-words"
+                        <a href="mailto:sanchayan.journal@gmail.com" class="hover:underline break-words"
                           >sanchayan.journal@prestigegwl.org</a
                         >
                       </li>

@@ -20,7 +20,7 @@
                 Sanchayan
             </p>
             <a href="#"
-                class="items-center px-3 py-2 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 text-center md:text-left ">
+                class="items-center px-3 py-2 text-xs font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 text-center md:text-left ">
                 Read more
             </a>
         </div>
@@ -43,7 +43,7 @@
                 Information
             </p>
             <a href="#"
-                class="items-center px-3 py-2 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 text-center md:text-left ">
+                class="items-center px-3 py-2 text-xs font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 text-center md:text-left ">
                 Read more
             </a>
         </div>
@@ -66,7 +66,7 @@
                 Information
             </p>
             <a href="#"
-                class="items-center px-3 py-2 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 text-center md:text-left ">
+                class="items-center px-3 py-2 text-xs  font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 text-center md:text-left ">
                 Read more
 
             </a>
@@ -79,7 +79,7 @@
             <img class="rounded-t-lg w-auto h-auto md:w-40 md:h-40 object-contain p-2"
                 src="https://pjitm.com/images/sanchayan/crossref-logo.jpeg" alt="" />
         </a>
-        <div class="p-5 p-5 flex flex-col justify-start">
+        <div class="p-5 flex flex-col justify-start">
             <a href="#">
                 <h5
                     class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white text-center md:text-left">
@@ -90,7 +90,7 @@
                 Information
             </p>
             <a href="#"
-                class="items-center px-3 py-2 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 text-center md:text-left  ">
+                class="items-center px-3 py-2 text-xs font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 text-center md:text-left  ">
                 Read more
             </a>
         </div>

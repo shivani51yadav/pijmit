@@ -5,26 +5,27 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Issue extends Model
+class PaperModel extends Model
 {
     use HasFactory;
-    protected $table = 'pijmit_issues';
 
-    protected $primaryKey = 'id';
+    protected $table ='papers';
+
+    protected $primaryKey = 'paper_id';
     protected $fillable = [
-        'vol_no',
-        'issue_no',
-        'year',
+        // 'vol_id',
+        'issue_id',
         'paper_title',
+        'paper_no',
+        'page_no',
         'authors',
-        'created_by',
-        'modified_by',
-        'page_nos',
-        'issue_type',
-        'status'
+
     ];
     protected $casts = [
         'created_at' => 'datetime',
         'updated_at' => 'datetime'
     ];
+    public function issue(){
+        return $this->belongsTo(IssueModel::class,'issue_id','issue_id');
+    }
 }

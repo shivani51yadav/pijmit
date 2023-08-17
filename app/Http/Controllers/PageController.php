@@ -47,8 +47,7 @@ class PageController extends Controller
         return view('currentIssue', compact('volumeData'));
     }
     public function oldIssue(){
-        $volumes = VolumeModel::all();
-        $volumeData = $volumes::with('issue')::with('issue.paper')->get();
+        $volumeData = VolumeModel::all();
         return view('oldIssue', compact('volumeData'));
     }
 }

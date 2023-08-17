@@ -15,7 +15,6 @@ return new class extends Migration
     {
         Schema::create('papers', function (Blueprint $table) {
             $table->id('paper_id');
-            $table->integer('vol_id');
             $table->integer('issue_id');
             $table->integer('paper_no');
             $table->string(('paper_title'));

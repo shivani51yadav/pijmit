@@ -18,6 +18,7 @@ return new class extends Migration
             $table->id('issue_id');
             $table->integer('issue_no');
             $table->string('issue_type');
+            $table->string('vol_id');
             $table->timestamps();
         });
     }

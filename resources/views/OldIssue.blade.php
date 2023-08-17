@@ -5,7 +5,7 @@
 
 @section('content')
     <!-- Body -->
-
+    {{@ddd($volumeData)}}
 
     <!-- ABOUT PIMRG -->
 

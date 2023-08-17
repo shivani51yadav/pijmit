@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\VolumeModel;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
@@ -39,9 +40,15 @@ class PageController extends Controller
         return view('subscription');
     }
     public function currentIssue(){
-        return view('CurrentIssue');
+        $volumes = VolumeModel::all();
+        $volumeData = $volumes::with('issue')::with('issue.paper')->get();
+
+        // return view('CurrentIssue');
+        return view('currentIssue', compact('volumeData'));
     }
     public function oldIssue(){
-        return view('OldIssue');
+        $volumes = VolumeModel::all();
+        $volumeData = $volumes::with('issue')::with('issue.paper')->get();
+        return view('oldIssue', compact('volumeData'));
     }
 }

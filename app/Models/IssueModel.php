@@ -26,10 +26,10 @@ class IssueModel extends Model
     ];
     public function volume()
     {
-        return $this->belongsTo(VolumeModel::class, 'vol_id', 'vol_id');
+        return $this->belongsTo(VolumeModel::class, 'vol_no', 'vol_no');
     }
-    public function paper()
+    public function papers()
     {
-        return $this->hasMany(PaperModel::class, 'issue_id', 'issue_id');
+        return $this->hasMany(PaperModel::class, 'issue_no', 'issue_no');
     }
 }

@@ -16,9 +16,11 @@ return new class extends Migration
     {
         Schema::create('issues', function (Blueprint $table) {
             $table->id('issue_id');
-            $table->integer('issue_no');
+            $table->unsignedBigInteger('issue_no');
             $table->string('issue_type');
             $table->string('vol_id');
+
+            $table->foreign('vol_id')->references('vol_id')->on('volumes');
             $table->timestamps();
         });
     }

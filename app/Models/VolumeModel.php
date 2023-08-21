@@ -21,7 +21,7 @@ class VolumeModel extends Model
         'created_at' => 'datetime',
         'updated_at' => 'datetime'
     ];
-    public function issue(){
+    public function issues(){
         return $this->hasMany(IssueModel::class,'vol_id','vol_id');
     }
 }

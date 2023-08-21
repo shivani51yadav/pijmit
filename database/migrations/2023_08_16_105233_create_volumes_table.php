@@ -16,8 +16,8 @@ return new class extends Migration
     {
         Schema::create('volumes', function (Blueprint $table) {
             $table->id('vol_id');
-            $table->integer('vol_no');
-            $table->unsignedInteger('vol_year')->nullable();
+            $table->unsignedBigInteger('vol_no');
+            $table->unsignedBigInteger('vol_year')->nullable();
             $table->timestamps();
 
         });

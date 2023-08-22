@@ -24,7 +24,7 @@
                         Current Issue
                     </h5>
                     <h6 class="mb-2 text-base font-medium leading-tight text-neutral-500 dark:text-gray-200">
-                        Vol. 11 (2),2022
+                        Vol. {{$currentIssue->vol_no}} ({{$currentIssue->issue_no}}),{{$currentIssue->volume->vol_year}}
                     </h6>
 
                     <!-- Table of papers -->
@@ -43,74 +43,30 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            @foreach ($currentIssue->papers as $paper)
+
                                             <tr>
                                                 <td class="px-6 py-4 font-medium">
-                                                    1
+                                                    {{$paper->paper_no}}
                                                 </td>
                                                 <td class="px-6 py-4">
                                                     <div class="paper-01">
                                                         <a href="#">
                                                             <p
                                                                 class="mt-6 text-base  text-left leading-normal  dark:text-neutral-200 hover:text-cyan-500  text-fuchsia-600 hover:underline">
-                                                                Decoding the Factors Impacting the Dynamics of
-                                                                Digital Payment Service Adoption in MSMEs
+                                                                {{$paper->paper_title}}
                                                             </p>
                                                         </a>
                                                     </div>
                                                 </td>
                                                 <td class="px-6 py-4">
                                                     <h6 class="mt-1 font-semibold text-gray-700">
-                                                        Dr. Harleen Kaur, Priya Devi
+                                                        {{$paper->authors}}
                                                     </h6>
                                                 </td>
-                                                <td class="px-6 py-4">1-19</td>
+                                                <td class="px-6 py-4">{{$paper->page_no}}</td>
                                             </tr>
-                                            <!-- second paper -->
-                                            <tr>
-                                                <td class="px-6 py-4 font-medium">
-                                                    2
-                                                </td>
-                                                <td class="px-6 py-4">
-                                                    <div class="paper-02">
-                                                        <a href="#">
-                                                            <p
-                                                                class="mt-6 text-base text-left  leading-normal dark:text-neutral-200 text-fuchsia-600 hover:text-cyan-500 hover:underline">
-                                                                Factors Affecting Consumers Perception Towards
-                                                                Technology Enabled Banking Self-Service
-                                                                (TEBSS) An Emperical Analysis
-                                                            </p>
-                                                        </a>
-                                                    </div>
-                                                </td>
-                                                <td class="px-6 py-4">
-                                                    <h6 class="mt-1 font-semibold text-gray-700">
-                                                        Sakshi, Dr. Manoj Kumar
-                                                    </h6>
-                                                </td>
-                                                <td class="px-6 py-4">20-39</td>
-                                            </tr>
-                                            <!-- third paper -->
-                                            <tr>
-                                                <td class="px-6 py-4 font-medium">
-                                                    3
-                                                </td>
-                                                <td class="px-6 py-4">
-                                                    <div class="paper-02">
-                                                        <a href="#">
-                                                            <p
-                                                                class="mt-6 text-base text-left  leading-normal dark:text-neutral-200 text-fuchsia-600 hover:text-cyan-500 hover:underline">
-                                                                Tesla INC. Case Study
-                                                            </p>
-                                                        </a>
-                                                    </div>
-                                                </td>
-                                                <td class="px-6 py-4">
-                                                    <h6 class="mt-1 font-semibold text-gray-700">
-                                                        Wallace Jacob, Sachin Pachori
-                                                    </h6>
-                                                </td>
-                                                <td class="px-6 py-4">40-52</td>
-                                            </tr>
+                                            @endforeach
                                         </tbody>
                                     </table>
                                 </div>

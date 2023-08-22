@@ -131,7 +131,7 @@
                             Volume-{{$issue->volume->vol_no}}
                         </h5>
                         <h6 class="mb-2 text-base font-medium leading-tight text-neutral-500 dark:text-gray-300">
-                            {{-- Issue-{{$issue->issue_id}} --}}
+                            Issue-{{$issue->issue_id}}
                             hii
                         </h6>
                         {{-- @foreach ($issue->paper as $paper)

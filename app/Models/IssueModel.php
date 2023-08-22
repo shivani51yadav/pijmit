@@ -24,10 +24,10 @@ class IssueModel extends Model
         'created_at' => 'datetime',
         'updated_at' => 'datetime'
     ];
-    // public function volume()
-    // {
-    //     return $this->belongsTo(VolumeModel::class, 'vol_no', 'vol_no');
-    // }
+    public function volume()
+    {
+        return $this->belongsTo(VolumeModel::class, 'vol_no', 'vol_no');
+    }
     // public function papers()
     // {
     //     return $this->hasMany(PaperModel::class, 'issue_no', 'issue_no');

@@ -50,7 +50,7 @@ class PageController extends Controller
     }
     public function oldIssue(){
         // $volumeData = VolumeModel::all();
-        $volumeData = IssueModel::where('status', 'active')->where('vol_no')->limit(50)->get();
+        $volumeData = IssueModel::where('status', 'active')->limit(50)->get();
         foreach($volumeData as $issue) {
             $issue->volume = VolumeModel::where(['vol_no' => $issue->vol_id,'status'=>'active'])->first();
             $issue->papers = PaperModel::where(['issue_no'=> $issue->id, 'vol_no'=> $issue->vol_id, 'status'=>'active'])->get();

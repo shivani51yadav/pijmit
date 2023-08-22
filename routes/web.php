@@ -36,5 +36,6 @@ Route::get('/dashboard', [AdminController::class,'dashboard']);
 Route::get('/admin',[AdminController::class,'index']);
 
 Route::get('/statisticscards', [AdminController::class,'statistics_cards']);
-Route::get('/volumes', [AdminController::class,'volumestable']);
-Route::get('/issuetable', [AdminController::class,'issuetable']);
+Route::get('/volumes', [AdminController::class,'volumestable'])->name('volumes');
+Route::get('/issuetable', [AdminController::class,'issuetable'])->name('issues');
+Route::get('/papertable', [AdminController::class,'papertable'])->name('papers');

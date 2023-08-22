@@ -18,9 +18,9 @@ return new class extends Migration
             $table->id('issue_id');
             $table->unsignedBigInteger('issue_no');
             $table->string('issue_type');
-            $table->string('vol_id');
+            $table->string('vol_no');
 
-            $table->foreign('vol_id')->references('vol_id')->on('volumes');
+            // $table->foreign('vol_no')->references('vol_no')->on('volumes');
             $table->timestamps();
         });
     }

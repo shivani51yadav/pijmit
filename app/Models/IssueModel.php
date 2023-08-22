@@ -14,7 +14,7 @@ class IssueModel extends Model
     protected $primaryKey = 'issue_id';
     protected $fillable = [
         'issue_id',
-        'vol_id',
+        'vol_no',
         'created_by',
         'modified_by',
         'issue_type',
@@ -24,12 +24,12 @@ class IssueModel extends Model
         'created_at' => 'datetime',
         'updated_at' => 'datetime'
     ];
-    public function volume()
-    {
-        return $this->belongsTo(VolumeModel::class, 'vol_no', 'vol_no');
-    }
-    public function papers()
-    {
-        return $this->hasMany(PaperModel::class, 'issue_no', 'issue_no');
-    }
+    // public function volume()
+    // {
+    //     return $this->belongsTo(VolumeModel::class, 'vol_no', 'vol_no');
+    // }
+    // public function papers()
+    // {
+    //     return $this->hasMany(PaperModel::class, 'issue_no', 'issue_no');
+    // }
 }

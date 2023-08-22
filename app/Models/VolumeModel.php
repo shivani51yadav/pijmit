@@ -14,14 +14,15 @@ class VolumeModel extends Model
     protected $fillable = [
         'vol_id',
         'vol_no',
-        'year',
+        'vol_year',
+        'status'
 
     ];
     protected $casts = [
         'created_at' => 'datetime',
         'updated_at' => 'datetime'
     ];
-    public function issues(){
-        return $this->hasMany(IssueModel::class,'vol_id','vol_id');
-    }
+    // public function issues(){
+    //     return $this->hasMany(IssueModel::class,'vol_id','vol_id');
+    // }
 }

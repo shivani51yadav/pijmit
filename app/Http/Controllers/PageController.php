@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\IssueModel;
+use App\Models\PaperModel;
 use App\Models\VolumeModel;
 use Illuminate\Http\Request;
 
@@ -47,7 +49,13 @@ class PageController extends Controller
         return view('currentIssue', compact('volumeData'));
     }
     public function oldIssue(){
-        $volumeData = VolumeModel::all();
+        // $volumeData = VolumeModel::all();
+        $volumeData = IssueModel::where('status', 'active')->where('vol_no')->limit(50)->get();
+        foreach($volumeData as $issue) {
+            $issue->volume = VolumeModel::where(['vol_no' => $issue->vol_id,'status'=>'active'])->first();
+            $issue->papers = PaperModel::where(['issue_no'=> $issue->id, 'vol_no'=> $issue->vol_id, 'status'=>'active'])->get();
+        }
+
         return view('oldIssue', compact('volumeData'));
     }
 }

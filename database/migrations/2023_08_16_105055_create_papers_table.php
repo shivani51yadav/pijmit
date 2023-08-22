@@ -37,8 +37,8 @@ return new class extends Migration
             $table->string('issue_no');
 
 
-            $table->foreign('vol_no')->references('vol_no')->on('volumes');
-            $table->foreign('issue_no')->references('issue_no')->on('issues');
+            // $table->foreign('vol_no')->references('vol_no')->on('volumes');
+            // $table->foreign('issue_no')->references('issue_no')->on('issues');
 
             $table->timestamps();
         });

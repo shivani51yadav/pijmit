@@ -1,12 +1,12 @@
 @extends('components.admin-layout')
 @section('title')
-    Issues
+    Papers
 @endsection
 
 @section('content')
                             <!-- Volumes Table -->
 
-                            @component('adminPages.issuetable')
+                            @component('adminPages.papertable')
                             @endcomponent
 
 @endsection

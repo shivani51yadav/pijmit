@@ -21,4 +21,10 @@ class AdminController extends Controller
     public function volumestable(){
         return view('adminPages.voltable');
     }
+    public function issuestable(){
+        return view('adminPages.issuetable');
+    }
+    public function paperstable(){
+        return view('adminPages.papertable');
+    }
 }

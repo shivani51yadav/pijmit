@@ -19,6 +19,7 @@ class PaperModel extends Model
         'authors',
         'vol_no',
         'issue_no',
+        'status'
     ];
     protected $casts = [
         'created_at' => 'datetime',
@@ -28,8 +29,8 @@ class PaperModel extends Model
         return $this->belongsTo(IssueModel::class,'issue_no','issue_no');
     }
 
-    public function volume(){
-        return $this->belongsTo(VolumeModel::class,'vol_no','vol_no');
-    }
+    // public function volume(){
+    //     return $this->belongsTo(VolumeModel::class,'vol_no','vol_no');
+    // }
 
 }

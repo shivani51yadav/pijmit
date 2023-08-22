@@ -5,7 +5,6 @@
 
 @section('content')
     <!-- Body -->
-    {{@ddd($volumeData)}}
 
     <!-- ABOUT PIMRG -->
 
@@ -123,18 +122,19 @@
             </div>
         </div> --}}
 
-        @foreach ($volumeData as $volume)
-            @foreach ($volume->issues as $issue)
+        @foreach ($volumeData as $issue)
+            {{-- @dd($issue->volume->vol_no); --}}
                 <div
                     class="block max-w-full mt-14 rounded-lg bg-white text-left shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
                     <div class="p-6 mt-14">
                         <h5 class="mb-1 text-xl font-medium leading-tight text-neutral-800 dark:text-slate-400">
-                            Volume-{{$volume->vol_id}}
+                            Volume-{{$issue->volume->vol_no}}
                         </h5>
                         <h6 class="mb-2 text-base font-medium leading-tight text-neutral-500 dark:text-gray-300">
-                            Issue-{{$issue->issue_id}}
+                            {{-- Issue-{{$issue->issue_id}} --}}
+                            hii
                         </h6>
-                        @foreach ($issue->paper as $paper)
+                        {{-- @foreach ($issue->paper as $paper)
                             <div class="paper-{{$paper->paper_no}}">
                                 <a href="">
                                     <p
@@ -146,11 +146,10 @@
                                     {{$paper->authors}}
                                 </h6>
                             </div>
-                        @endforeach
+                        @endforeach --}}
 
                     </div>
                 </div>
-            @endforeach
         @endforeach
 
         <!-- CARDS -->

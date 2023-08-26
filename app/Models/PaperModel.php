@@ -19,6 +19,7 @@ class PaperModel extends Model
         'authors',
         'vol_no',
         'issue_no',
+        'file_path',
         'status'
     ];
     protected $casts = [

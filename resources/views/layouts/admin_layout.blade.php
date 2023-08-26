@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -33,6 +32,7 @@
 </head>
 
 <body>
+
     @component('components.admin-layout')
         @yield('content')
     @endcomponent

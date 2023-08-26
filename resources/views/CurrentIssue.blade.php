@@ -24,7 +24,7 @@
                         Current Issue
                     </h5>
                     <h6 class="mb-2 text-base font-medium leading-tight text-neutral-500 dark:text-gray-200">
-                        Vol. {{$currentIssue->vol_no}} ({{$currentIssue->issue_no}}),{{$currentIssue->volume->vol_year}}
+                        Vol. {{$currentIssue->vol_no}} ({{$currentIssue->issue_no}}),{{$currentIssue->vol_year}}
                     </h6>
 
                     <!-- Table of papers -->
@@ -51,7 +51,7 @@
                                                 </td>
                                                 <td class="px-6 py-4">
                                                     <div class="paper-01">
-                                                        <a href="#">
+                                                        <a href="{{asset($paper->file_path)}}" download>
                                                             <p
                                                                 class="mt-6 text-base  text-left leading-normal  dark:text-neutral-200 hover:text-cyan-500  text-fuchsia-600 hover:underline">
                                                                 {{$paper->paper_title}}

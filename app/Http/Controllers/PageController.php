@@ -48,12 +48,12 @@ class PageController extends Controller
         // return view('CurrentIssue');
         $currentIssue = IssueModel::where(['status'=>'active','issue_type'=>'current'])->first();
         $currentIssue->volume = VolumeModel::where(['vol_no' => $currentIssue->vol_no,'status'=>'active'])->first();
-        $currentIssue->papers = PaperModel::where(['issue_no'=> $currentIssue->issue_no, 'vol_no'=> $currentIssue->vol_no, 'status'=>'active'])->get();
+        $currentIssue->papers = PaperModel::where(['issue_no'=> $currentIssue->issue_no, 'vol_no'=> $currentIssue->vol_no, 'status'=>'active'])->orderBy('issue_no')->get();
         return view('currentIssue', compact('currentIssue'));
     }
     public function oldIssue(){
         // $volumeData = VolumeModel::all();
-        $IssuesData = IssueModel::where(['status'=>'active','issue_type'=>'old'])->orderBy('issue_id', 'desc')->get();
+        $IssuesData = IssueModel::where(['status'=>'active','issue_type'=>'old'])->orderBy('vol_no','DESC')->orderBy('issue_id', 'desc')->get();
         foreach($IssuesData as $issue) {
             // dd(VolumeModel::where(['vol_no' => $issue->vol_no,'status'=>'active'])->first());
             $issue->volume = VolumeModel::where(['vol_no' => $issue->vol_no,'status'=>'active'])->first();

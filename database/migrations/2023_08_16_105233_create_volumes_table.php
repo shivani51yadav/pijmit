@@ -18,6 +18,7 @@ return new class extends Migration
             $table->id('vol_id');
             $table->unsignedBigInteger('vol_no');
             $table->unsignedBigInteger('vol_year')->nullable();
+            $table->string('status')->default('active');
             $table->timestamps();
 
         });

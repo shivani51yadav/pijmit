@@ -141,12 +141,13 @@
                     <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                         <thead class="text-xs text-gray-700 uppercase bg-sky-300 dark:bg-amber-50 dark:text-gray-400">
                             <tr>
-                                <th scope="col" class="px-4 py-3">Volume No.</th>
+                                <th scope="col" class="px-4 py-3">Volume No</th>
                                 <th scope="col" class="px-4 py-3">Issue No</th>
-                                <th scope="col" class="px-4 py-3">Paper No.</th>
-                                <th scope="col" class="px-4 py-3">Paper Title.</th>
-                                <th scope="col" class="px-4 py-3">Page No.</th>
+                                <th scope="col" class="px-4 py-3">Paper No</th>
+                                <th scope="col" class="px-4 py-3">Paper Title</th>
+                                <th scope="col" class="px-4 py-3">Page No</th>
                                 <th scope="col" class="px-4 py-3">Authors</th>
+                                <th scope="col" class="px-4 py-3">Status</th>
                                 <th scope="col" class="px-4 py-3">Created by</th>
                                 <th scope="col" class="px-4 py-3">Modified by</th>
                                 <th scope="col" class="pr-8">Actions</th>
@@ -165,6 +166,7 @@
                                     <td class="px-6 py-4">{{ $paper->paper_title }}</td>
                                     <td class="px-6 py-4">{{ $paper->page_no }}</td>
                                     <td class="px-6 py-4">{{ $paper->authors }}</td>
+                                    <td class="px-6 py-4">{{ $paper->Status }}</td>
                                     <td class="px-6 py-4">{{ $paper->created_by }}</td>
                                     <td class="px-6 py-4">{{ $paper->modified_by }}</td>
                                     <!-- ... Other columns ... -->

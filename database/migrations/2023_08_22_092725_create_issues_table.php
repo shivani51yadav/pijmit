@@ -19,6 +19,7 @@ return new class extends Migration
             $table->unsignedBigInteger('issue_no');
             $table->string('issue_type');
             $table->string('vol_no');
+            $table->string('status')->default('active');
 
             // $table->foreign('vol_no')->references('vol_no')->on('volumes');
             $table->timestamps();

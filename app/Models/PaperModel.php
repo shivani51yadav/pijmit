@@ -13,13 +13,17 @@ class PaperModel extends Model
 
     protected $primaryKey = 'paper_id';
     protected $fillable = [
-        'paper_title',
         'paper_no',
-        'page_no',
+        'paper_title',
+        'paper_name',
+        'start_page_no',
+        'end_page_no',
         'authors',
         'vol_no',
         'issue_no',
         'file_path',
+        'created_by',
+        'updated_by',
         'status'
     ];
     protected $casts = [
@@ -29,9 +33,5 @@ class PaperModel extends Model
     public function issue(){
         return $this->belongsTo(IssueModel::class,'issue_no','issue_no');
     }
-
-    // public function volume(){
-    //     return $this->belongsTo(VolumeModel::class,'vol_no','vol_no');
-    // }
 
 }

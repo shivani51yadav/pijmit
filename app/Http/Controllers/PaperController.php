@@ -13,9 +13,9 @@ class PaperController extends Controller
     public function index()
     {
 
-        $papers = PaperModel::where(['status' => 'active'])->get();
-        $issues = IssueModel::where(['status' => 'active'])->get();
-        $volumes = VolumeModel::where(['status' => 'active'])->get();
+        $papers = PaperModel::all();
+        $issues = IssueModel::all();
+        $volumes = VolumeModel::all();
 
         return view('adminPages.papertable', compact('papers', 'issues', 'volumes'));
     }
@@ -103,8 +103,8 @@ class PaperController extends Controller
             ->where('paper_no', $paper_no)
             ->firstOrFail();
 
-        $volumes = VolumeModel::where(['status' => 'active'])->get();
-        $issues = IssueModel::where(['status' => 'active'])->get();
+        $volumes = VolumeModel::all();
+        $issues = IssueModel::all();
 
         return view('papers.edit', compact('paper', 'volumes', 'issues'));
     }
@@ -143,5 +143,16 @@ class PaperController extends Controller
         }
 
         return redirect()->route('papers.show', [$vol_no, $issue_no, $paper_no])->with('success', 'Paper updated successfully.');
+    }
+    public function changeStatus($vol_no, $issue_no, $paper_no){
+        $paper = PaperModel::where(['vol_no' => $vol_no, 'issue_no'=>$issue_no,'paper_no'=>$paper_no])->firstOrFail();
+        $currentStatus = $paper->status;
+        if ($currentStatus == 'active'){
+            $paper->status = 'inactive';
+        }else{
+            $paper->status = 'active';
+        }
+        $paper->save();
+        return redirect()->route('papers')->with('success', 'Paper updated successfully.');
     }
 }

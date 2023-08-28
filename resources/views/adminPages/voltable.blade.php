@@ -67,24 +67,23 @@
                     <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                         <thead class="text-xs text-gray-700 uppercase bg-sky-300 dark:bg-amber-50 dark:text-gray-400">
                             <tr>
-                                <th scope="col" class="px-4 py-3">Volume ID</th>
                                 <th scope="col" class="px-4 py-3">Volume No</th>
                                 <th scope="col" class="px-4 py-3">Volume Year</th>
+                                <th scope="col" class="px-4 py-3">Status</th>
                                 <th scope="col" class="pr-8">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($volumes as $volume)
                             <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-                                <th scope="row"
-                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    {{$volume->vol_id}}
-                                </th>
                                 <td class="px-6 py-4">
                                     {{$volume->vol_no}}
                                 </td>
                                 <td class="px-6 py-4">
                                     {{$volume->vol_year}}
+                                </td>
+                                <td class="px-6 py-4">
+                                    {{$volume->status}}
                                 </td>
 
                                 <td class="px-6 py-4 space-x-4">

@@ -12,7 +12,7 @@ class VolumeController extends Controller
 {
     public function index()
     {
-        $volumes = VolumeModel::where(['status' => 'active'])->get();
+        $volumes = VolumeModel::all();
         return view('adminPages.voltable', compact('volumes'));
     }
 
@@ -73,6 +73,18 @@ public function edit($vol_no)
     }
 
     return view('volumeedit', compact('volume'));
+}
+public function changeStatus($vol_no){
+
+    $volume = VolumeModel::where(['vol_no' => $vol_no])->firstOrFail();
+    $currentStatus = $volume->status;
+    if ($currentStatus == 'active'){
+        $volume->status = 'inactive';
+    }else{
+        $volume->status = 'active';
+    }
+    $volume->save();
+    return redirect()->route('volumes')->with('success', 'Volume updated successfully.');
 }
 }
 

@@ -12,7 +12,7 @@ class IssueController extends Controller
 {
     public function index()
     {
-        $issues = IssueModel::get();
+        $issues = IssueModel::all();
         foreach ($issues as $issue) {
             $issue->volume = VolumeModel::where('vol_no', $issue->vol_no)->first();
         }
@@ -61,7 +61,7 @@ class IssueController extends Controller
 
         if($issue_type == 'current'){
 
-            $currentIssue =IssueModel::where(['issue_type'=> 'current', 'status' => 'active' ])->first();
+            $currentIssue =IssueModel::where(['issue_type'=> 'current'])->first();
             $currentIssue->issue_type = 'old';
             $currentIssue->save();
         }
@@ -69,7 +69,6 @@ class IssueController extends Controller
         $issue = new IssueModel();
         $issue->vol_no = $vol_no;
         $issue->issue_no = $issue_no;
-        $issue->status = $status;
         $issue->issue_type =  $request->input('issue_type');
         $issue->save();
         Storage::disk('public')->makeDirectory($vol_no . '/' . $issue_no);
@@ -121,7 +120,7 @@ class IssueController extends Controller
     public function edit($issue_no, $vol_no)
     {
         $volumes = VolumeModel::all();
-        $issue = IssueModel::where(['issue_no'=> $issue_no,'status'=>'active','vol_no'=>$vol_no])->first();
+        $issue = IssueModel::where(['issue_no'=> $issue_no,'vol_no'=>$vol_no])->first();
 
 
         if (!$issue) {
@@ -131,5 +130,16 @@ class IssueController extends Controller
         return view('issues.edit', compact('issue', 'volumes'));
     }
 
+    public function changeStatus($vol_no, $issue_no){
+        $issue = IssueModel::where(['vol_no' => $vol_no, 'issue_no'=>$issue_no])->firstOrFail();
+        $currentStatus = $issue->status;
+        if ($currentStatus == 'active'){
+            $issue->status = 'inactive';
+        }else{
+            $issue->status = 'active';
+        }
+        $issue->save();
+        return redirect()->route('issues')->with('success', 'Issue updated successfully.');
+    }
 
 }

@@ -146,13 +146,15 @@ class PaperController extends Controller
     }
     public function changeStatus($vol_no, $issue_no, $paper_no){
         $paper = PaperModel::where(['vol_no' => $vol_no, 'issue_no'=>$issue_no,'paper_no'=>$paper_no])->firstOrFail();
-        $currentStatus = $paper->status;
-        if ($currentStatus == 'active'){
-            $paper->status = 'inactive';
-        }else{
-            $paper->status = 'active';
-        }
+        // $currentStatus = $paper->status;
+        // if ($currentStatus == 'active'){
+        //     $paper->status = 'inactive';
+        // }else{
+        //     $paper->status = 'active';
+        // }
+        $paper->status = ($paper->status == 'active') ? 'inactive' : 'active';
         $paper->save();
+
         return redirect()->route('papers')->with('success', 'Paper updated successfully.');
     }
 }

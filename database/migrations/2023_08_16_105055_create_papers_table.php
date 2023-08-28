@@ -18,11 +18,14 @@ return new class extends Migration
             $table->unsignedBigInteger('paper_no');
             $table->string('paper_title');
             $table->string('paper_name');
-            $table->string('page_no');
+            $table->string('start_page_no');
+            $table->string('end_page_no');
             $table->string('authors');
             $table->string('vol_no');
             $table->string('issue_no');
             $table->string('status')->default('active');
+            $table->string('created_by');
+            $table->string('updated_by');
             $table->string('file_path')->nullable();
             $table->timestamps();
 

@@ -24,10 +24,18 @@
                     <dd>{{ $paper->paper_title }}</dd>
                 </div>
                 <div class="col-span-2 sm:col-span-1">
-                    <dt class="text-gray-500">Page No.</dt>
-                    <dd>{{ $paper->page_no }}</dd>
+                    <dt class="text-gray-500">Start Page No.</dt>
+                    <dd>{{ $paper->start_page_no }}</dd>
+                </div>
+                <div class="col-span-2 sm:col-span-1">
+                    <dt class="text-gray-500">End Page No.</dt>
+                    <dd>{{ $paper->end_page_no }}</dd>
                 </div>
 
+                <div class="col-span-2 sm:col-span-1">
+                    <dt class="text-gray-500">Status</dt>
+                    <dd>{{ $paper->status }}</dd>
+                </div>
                 <div class="col-span-2 sm:col-span-1">
                     <dt class="text-gray-500">Authors</dt>
                     <dd>{{ $paper->authors }}</dd>
@@ -38,10 +46,8 @@
                 </div>
                 <div class="col-span-2 sm:col-span-1">
                     <dt class="text-gray-500">Modified by</dt>
-                    <dd>{{ $paper->modified_by }}</dd>
+                    <dd>{{ $paper->updated_by }}</dd>
                 </div>
-
-            <!-- Add other fields here... -->
 
             <div>
                 <h3 class="text-xl font-semibold mb-2">Upload Paper</h3>

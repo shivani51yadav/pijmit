@@ -65,7 +65,9 @@ Route::middleware('auth')->group(function () {
     Route::post('/papers/store/', [PaperController::class, 'store'])->name('papers.store');
     Route::get('papers/{vol_no}/{issue_no}/{paper_no}/edit', [PaperController::class, 'edit'])->name('papers.edit');
     Route::put('papers/{vol_no}/{issue_no}/{paper_no}', [PaperController::class, 'update'])->name('papers.update');
-    Route::post('papers/{vol_no}/{issue_no}/{paper_no}',[PaperController::class,'changeStatus'])->name('papers.changeStatus');
+    // Route::post('papers/{vol_no}/{issue_no}/{paper_no}',[PaperController::class,'changeStatus'])->name('papers.changeStatus');
+    Route::get('/change-status/{vol_no}/{issue_no}/{paper_no}', [PaperController::class,'changeStatus'])->name('papers.changeStatus');
+
 });
 
 

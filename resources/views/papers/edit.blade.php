@@ -86,16 +86,12 @@
                 </div>
 
                 <div class="mb-4">
-                    <label for="paper_name" class="block font-medium text-gray-900 dark:text-white">Paper Name</label>
-                    <input type="text" name="paper_name" id="paper_name" value="{{ $paper->paper_name }}" class="form-input w-full">
+                    <label for="page_no" class="block font-medium text-gray-900 dark:text-white">Start Page No.</label>
+                    <input type="text" name="page_no" id="page_no" value="{{ $paper->start_page_no }}" class="form-input w-full">
                 </div>
                 <div class="mb-4">
-                    <label for="paper_no" class="block font-medium text-gray-900 dark:text-white">Paper No.</label>
-                    <input type="text" name="paper_no" id="paper_no" value="{{ $paper->paper_no }}" class="form-input w-full">
-                </div>
-                <div class="mb-4">
-                    <label for="page_no" class="block font-medium text-gray-900 dark:text-white">Page No.</label>
-                    <input type="text" name="page_no" id="page_no" value="{{ $paper->page_no }}" class="form-input w-full">
+                    <label for="page_no" class="block font-medium text-gray-900 dark:text-white">End Page No.</label>
+                    <input type="text" name="page_no" id="page_no" value="{{ $paper->end_page_no }}" class="form-input w-full">
                 </div>
 
                 <div class="mb-4">
@@ -103,8 +99,16 @@
                     <input type="text" name="authors" id="authors" value="{{ $paper->authors }}" class="form-input w-full">
                 </div>
                 <div class="mb-4">
+                    <label for="authors" class="block font-medium text-gray-900 dark:text-white">Status</label>
+                    <input type="text" name="authors" id="authors" value="{{ $paper->status }}" class="form-input w-full">
+                </div>
+                <div class="mb-4">
+                    <label for="page_no" class="block font-medium text-gray-900 dark:text-white">Created By</label>
+                    <input type="text" name="page_no" id="page_no" value="{{ $paper->created_by }}" class="form-input w-full">
+                </div>
+                <div class="mb-4">
                     <label for="modified_by" class="block font-medium text-gray-900 dark:text-white">Modified by</label>
-                    <input type="text" name="modified_by" id="modified_by" value="{{ $paper->modified_by }}" class="form-input w-full">
+                    <input type="text" name="modified_by" id="modified_by" value="{{ $paper->updated_by }}" class="form-input w-full">
                 </div>
 
                 <div class="mb-4">

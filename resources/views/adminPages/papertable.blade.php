@@ -145,11 +145,13 @@
                                 <th scope="col" class="px-4 py-3">Issue No</th>
                                 <th scope="col" class="px-4 py-3">Paper No</th>
                                 <th scope="col" class="px-4 py-3">Paper Title</th>
-                                <th scope="col" class="px-4 py-3">Page No</th>
+                                {{-- <th scope="col" class="px-4 py-3">Paper Name</th> --}}
+                                {{-- <th scope="col" class="px-4 py-3">Start Page No</th> --}}
+                                {{-- <th scope="col" class="px-4 py-3">End Page No</th> --}}
                                 <th scope="col" class="px-4 py-3">Authors</th>
                                 <th scope="col" class="px-4 py-3">Status</th>
-                                <th scope="col" class="px-4 py-3">Created by</th>
-                                <th scope="col" class="px-4 py-3">Modified by</th>
+                                {{-- <th scope="col" class="px-4 py-3">Created by</th> --}}
+                                {{-- <th scope="col" class="px-4 py-3">Modified by</th> --}}
                                 <th scope="col" class="pr-8">Actions</th>
                             </tr>
                         </thead>
@@ -164,12 +166,17 @@
                                     <td class="px-6 py-4">{{ $paper->issue_no }}</td>
                                     <td class="px-6 py-4">{{ $paper->paper_no }}</td>
                                     <td class="px-6 py-4">{{ $paper->paper_title }}</td>
-                                    <td class="px-6 py-4">{{ $paper->page_no }}</td>
+                                    {{-- <td class="px-6 py-4">{{ $paper->paper_name }}</td> --}}
+                                    {{-- <td class="px-6 py-4">{{ $paper->start_page_no }}</td> --}}
+                                    {{-- <td class="px-6 py-4">{{ $paper->end_page_no }}</td> --}}
                                     <td class="px-6 py-4">{{ $paper->authors }}</td>
-                                    <td class="px-6 py-4">{{ $paper->Status }}</td>
-                                    <td class="px-6 py-4">{{ $paper->created_by }}</td>
-                                    <td class="px-6 py-4">{{ $paper->modified_by }}</td>
-                                    <!-- ... Other columns ... -->
+                                    <td class="px-6 py-4">
+                                        <a href="{{ route('papers.changeStatus', ['vol_no' => $paper->vol_no, 'issue_no' => $paper->issue_no, 'paper_no' => $paper->paper_no]) }}">
+                                        {{ $paper->status }}</a>
+                                    </td>
+                                    {{-- <td class="px-6 py-4">{{ $paper->created_by }}</td> --}}
+                                    {{-- <td class="px-6 py-4">{{ $paper->updated_by }}</td> --}}
+
                                     <td class="px-6 py-4 space-x-4">
                                         <a href="{{ route('papers.show', [$paper->vol_no, $paper->issue_no, $paper->paper_no]) }}"
                                             class="font-medium text-green-600 dark:text-green-500 pl-4 ">Show</a>

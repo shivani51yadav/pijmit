@@ -12,11 +12,11 @@ class IssueController extends Controller
 {
     public function index()
     {
-        $issues = IssueModel::where(['status' => 'active'])->get();
+        $issues = IssueModel::get();
         foreach ($issues as $issue) {
             $issue->volume = VolumeModel::where('vol_no', $issue->vol_no)->first();
         }
-        $volumes = VolumeModel::where(['status' => 'active'])->get();
+        $volumes = VolumeModel::get();
         return view('adminPages.issuetable', compact('issues', 'volumes'));
     }
 
@@ -42,12 +42,14 @@ class IssueController extends Controller
         $request->validate([
             'vol_no' => 'required',
             'issue_type' => 'required',
-            'issue_no' => 'required|unique:issues,issue_no,NULL,id,vol_no,' . $request->vol_no
+            'status' => 'required',
+            'issue_no' => 'required|unique:issues,issue_no,NULL,id,vol_no,' . $request->vol_no,
         ]);
 
         // {
         $vol_no = $request->input('vol_no');
         $issue_no = $request->input('issue_no');
+        $issue_status = $request->input('issue_status');
         $issue_type = $request->input('issue_type');
         $existingIssue = IssueModel::where('vol_no', $vol_no)
             ->where('issue_no', $issue_no)
@@ -67,6 +69,7 @@ class IssueController extends Controller
         $issue = new IssueModel();
         $issue->vol_no = $vol_no;
         $issue->issue_no = $issue_no;
+        $issue->status = $status;
         $issue->issue_type =  $request->input('issue_type');
         $issue->save();
         Storage::disk('public')->makeDirectory($vol_no . '/' . $issue_no);

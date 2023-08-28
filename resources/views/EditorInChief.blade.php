@@ -10,7 +10,7 @@
         <div class="About block md:h-1/3 w-full md:w-2/3">
             <h1 class="text-2xl font-bold underline decoration-wavy decoration-sky-500">Editor In Chief</h1>
             <img src="https://pjitm.com/images/sanchayan/drnishant.jpg" alt="Image of Editor In Chief"
-                class=" max-md:w-8 max-md:h-14 object-contain py-4">
+                class="object-contain md:max-h-96   py-4">
             <div class="Information text-justify ">
                 <div>
                     <h3 class="font-bold">Dr. Nishant Joshi</h3>

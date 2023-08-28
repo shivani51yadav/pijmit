@@ -92,6 +92,7 @@
             </div>
     @endif
 
+    
         @include('components.navbar')
         @include('components.sidebar')
 

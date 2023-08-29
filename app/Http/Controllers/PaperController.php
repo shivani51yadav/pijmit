@@ -22,17 +22,14 @@ class PaperController extends Controller
 
     public function show($vol_no, $issue_no, $paper_no)
     {
-        // Fetch the specific paper using the provided parameters
         $paper = PaperModel::where('vol_no', $vol_no)
             ->where('issue_no', $issue_no)
             ->where('paper_no', $paper_no)
             ->first();
 
         if (!$paper) {
-            abort(404); // Paper not found
+            abort(404);
         }
-
-        // You can also fetch other related data like volumes and issues if needed
         $volumes = VolumeModel::all();
         $issues = IssueModel::where('vol_no', $vol_no)->get();
 
@@ -53,15 +50,14 @@ class PaperController extends Controller
     {
 
         $validatedData = $request->validate([
-            // ... your other validation rules ...
+
             'vol_no' => 'required',
             'issue_no' => 'required',
             'paper_no' => 'required',
             'paper_title' => 'required',
-            'pdf_file' => 'required|mimes:pdf', // Adjust max file size as needed
+            'pdf_file' => 'required|mimes:pdf',
         ]);
 
-        // Create a new Paper instance and fill it with form data
         $paper = new PaperModel();
         $paper->vol_no = $request->input('vol_no');
         $paper->issue_no = $request->input('issue_no');
@@ -74,22 +70,14 @@ class PaperController extends Controller
         $paper->created_by = $request->input('created_by');
         $paper->updated_by = $request->input('updated_by');
 
-        // dd($paper);
-
-
         if ($request->hasFile('pdf_file')) {
             $file = $request->file('pdf_file');
             $fileExtension = $file->getClientOriginalExtension();
             $fileName = $paper->vol_no . '-' . $paper->issue_no . '-' . $paper->paper_no . '-' . $paper->paper_name. '-' . (date('Y-m-d-H-i-s')) . '.' . $fileExtension;
-
-            // Store the file in the appropriate directory
-            // $file->storeAs('public/' . $paper->vol_no . '/' . $paper->issue_no, $fileName);
             $file->move(public_path('storage_files/'.$paper->vol_no . '/' . $paper->issue_no),$fileName);
 
-            // Save the file path in the database
             $paper->file_path = 'storage_files/' . $paper->vol_no . '/' . $paper->issue_no . '/' . $fileName;
         }
-        // Save the paper record to the database
         $paper->save();
 
         return redirect()->route('papers')

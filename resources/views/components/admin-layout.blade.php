@@ -10,11 +10,10 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet" />
-    <!-- <link rel="stylesheet" href="/dist/output.css"> -->
-    {{-- <link rel="stylesheet" href="style.css" /> --}}
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdn.tailwindcss.com"></script>
     <title>
-        @yield('title')
+        Admin Dashboard
     </title>
     <style>
         * {
@@ -92,7 +91,7 @@
             </div>
     @endif
 
-    
+
         @include('components.navbar')
         @include('components.sidebar')
 
@@ -106,6 +105,22 @@
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.0/flowbite.min.js"></script>
+    <script>
+        const toastSuccess = document.getElementById('toast-success');
+        const toastDanger = document.getElementById('toast-danger');
+
+        if (!toastSuccess.classList.contains('hidden')){
+            setTimeout(() => {
+                toastSuccess.classList.add('hidden');
+            }, 3000);
+        }
+
+        if (!toastDanger.classList.contains('hidden')){
+            setTimeout(() => {
+                toastDanger.classList.add('hidden');
+            }, 3000);
+        }
+    </script>
 </body>
 
 </html>

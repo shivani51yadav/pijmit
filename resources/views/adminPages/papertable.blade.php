@@ -121,6 +121,7 @@
                                                     required>
                                             </div>
                                             <div class="col-span-2">
+
                                                 <label for="pdf_file"
                                                     class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Upload
                                                     Paper</label>

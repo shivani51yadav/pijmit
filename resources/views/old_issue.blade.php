@@ -1,9 +1,10 @@
-<div
-    class="flex flex-col md:flex-row gap-10 justify-center align-top shadow-lg bg-white dark:bg-slate-800 md:max-w-[90%] m-auto  mb-10 rounded-xl ">
+
     @extends('components.admin-layout')
 
     @section('content')
-        <div class="About md:h-1/3 w-full md:w-2/3 flex flex-col gap-4">
+    <div
+    class="flex flex-col md:flex-row gap-10 justify-center align-top shadow-lg bg-white dark:bg-slate-800 m-auto  mb-10 rounded-xl ">
+        <div class="About md:h-1/3 w-full flex flex-col gap-4 p-3">
             <h1 class="text-2xl font-bold underline decoration-wavy decoration-sky-500 dark:text-slate-200">
                 Old Issue
             </h1>

@@ -3,16 +3,16 @@
 @section('content')
 
         <div class="About block md:h-1/3 w-full">
-            <h1 class="text-2xl font-bold underline decoration-wavy decoration-sky-500 dark:text-yellow-50 mt-8 text-start">
+            <h1 class="text-2xl font-bold underline decoration-wavy decoration-sky-500  mt-8 text-start">
                 Current Issue
             </h1>
 
             <!-- New Issue -->
 
             <div
-                class="block max-w-full mt-14 rounded-lg bg-white text-left shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-500">
+                class="block max-w-full mt-14 rounded-lg bg-white text-left shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]  dark:bg-slate-800">
                 <div class="p-6 md:max-w-[90%]">
-                    <h5 class="mb-1 text-xl font-medium leading-tight text-neutral-800 dark:text-gray-200">
+                    <h5 class="mb-1 text-xl font-medium leading-tight text-neutral-800 dark:text-slate-200">
                         Current Issue
                     </h5>
                     <h6 class="mb-2 text-base font-medium leading-tight text-neutral-500 dark:text-gray-200">
@@ -26,7 +26,7 @@
                             <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
                                 <div class="overflow-hidden">
                                     <table class="min-w-full text-center text-sm font-light">
-                                        <thead class="font-medium">
+                                        <thead class="font-medium dark:text-slate-200">
                                             <tr>
                                                 <th scope="col" class="px-6 py-4 ">Paper No.</th>
                                                 <th scope="col" class="px-6 py-4">Paper Title</th>
@@ -37,7 +37,7 @@
                                         <tbody>
                                             @foreach ($currentIssue->papers as $paper)
                                                 <tr>
-                                                    <td class="px-6 py-4 font-medium">
+                                                    <td class="px-6 py-4 font-medium dark:text-slate-400">
                                                         {{ $paper->paper_no }}
                                                     </td>
                                                     <td class="px-6 py-4">
@@ -50,8 +50,8 @@
                                                             </a>
                                                         </div>
                                                     </td>
-                                                    <td class="px-6 py-4">
-                                                        <h6 class="mt-1 font-semibold text-gray-700">
+                                                    <td class="px-6 py-4 dark:text-slate-400">
+                                                        <h6 class="mt-1 font-semibold text-slate-400">
                                                             {{ $paper->authors }}
                                                         </h6>
                                                     </td>

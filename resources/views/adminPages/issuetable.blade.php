@@ -95,7 +95,10 @@
                                     </th>
                                     <td class="px-6 py-4">{{ $issue->issue_no }}</td>
                                     <td class="px-6 py-4">{{ $issue->issue_type }}</td>
-                                    <td class="px-6 py-4">{{ $issue->status }}
+                                    <td class="px-6 py-4">
+                                        <a href="{{ route('issues.changeStatus', ['vol_no' => $issue->vol_no, 'issue_no' => $issue->issue_no]) }}">
+                                        {{ $issue->status }}</a>
+                                    </td>
                                 </td>
                                     <td class="px-6 py-4 space-x-4">
 

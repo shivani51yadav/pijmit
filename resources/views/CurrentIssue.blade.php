@@ -1,13 +1,9 @@
 @extends('layouts.layout')
 @section('title')
-    New Issue
+    Current Issue
 @endsection
 
 @section('content')
-    {{-- Current issues --}}
-
-    <!-- Body -->
-
     <div
         class="flex flex-col md:flex-row gap-10 justify-center align-top p-4 md:p-10 shadow-lg bg-white dark:bg-slate-800 md:max-w-[80%] m-auto mt-20 md:mt-20 mb-10 rounded-xl">
         <div class="About block md:h-1/3 w-full md:w-2/3">

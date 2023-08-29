@@ -9,21 +9,15 @@
                 <div class="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4">
                     <div
                         class="w-full md:w-auto flex flex-col md:flex-row space-y-2 md:space-y-0 items-stretch md:items-center justify-end md:space-x-3 flex-shrink-0">
-
-                        <!-- Modal toggle -->
-                        <!-- ... Your modal toggle button ... -->
                         <button data-modal-target="paperAdd-modal" data-modal-toggle="paperAdd-modal"
                             class="block text-white bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-gray-600 dark:gray:bg-blue-700 dark:focus:ring-gray-800"
                             type="button">
                             + ADD PAPER
                         </button>
-
-                        <!-- Main modal -->
-                        <!-- ... Your modal content ... -->
                         <div id="paperAdd-modal" tabindex="-1" aria-hidden="true"
                             class="fixed top-0 left-0 right-0 z-50 hidden p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
                             <div class="relative max-w-md max-h-full">
-                                <!-- Modal content -->
+
                                 <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
                                     <button type="button"
                                         class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
@@ -94,9 +88,18 @@
                                             </div>
                                             <div>
                                                 <label for="page_no"
-                                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Page
+                                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Start Page
                                                     No.</label>
-                                                <input type="text" name="page_no" id="page_no" placeholder="page no "
+                                                <input type="text" name="start_page_no" id="page_no" placeholder="page no "
+                                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                                                    required>
+                                            </div>
+
+                                            <div>
+                                                <label for="page_no"
+                                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">End Page
+                                                    No.</label>
+                                                <input type="text" name="end_page_no" id="page_no" placeholder="page no "
                                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                                                     required>
                                             </div>
@@ -110,9 +113,9 @@
                                             </div>
                                             <div>
                                                 <label for="modified_by"
-                                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Modified
+                                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Updated
                                                     By</label>
-                                                <input type="text" name="modified_by" id="modified_by"
+                                                <input type="text" name="updated_by" id="modified_by"
                                                     placeholder="eg. 2 "
                                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                                                     required>
@@ -197,16 +200,13 @@
 
     <script>
         $(document).ready(function() {
-            // Handler for 'select volume no' dropdown
             $('#vol_no').on('change', function() {
                 var selectedVolume = $(this).val();
                 if (selectedVolume !== '') {
-                    // Send an AJAX request to get issue numbers based on selected volume
                     $.ajax({
                         url: '/get-issues/' + selectedVolume,
                         method: 'GET',
                         success: function(response) {
-                            // Populate 'select issue no' dropdown with the retrieved data
                             $('#issue_no').empty().append($('<option>').val('').text(
                                 'Select an Issue'));
                             $.each(response.issues, function(key, value) {

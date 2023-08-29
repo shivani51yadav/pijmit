@@ -75,16 +75,17 @@ public function edit($vol_no)
     return view('volumeedit', compact('volume'));
 }
 public function changeStatus($vol_no){
-
     $volume = VolumeModel::where(['vol_no' => $vol_no])->firstOrFail();
-    $currentStatus = $volume->status;
-    if ($currentStatus == 'active'){
-        $volume->status = 'inactive';
-    }else{
-        $volume->status = 'active';
-    }
+    // $currentStatus = $issue->status;
+    // if ($currentStatus == 'active'){
+    //     $issue->status = 'inactive';
+    // }else{
+    //     $issue->status = 'active';
+    // }
+    // $issue->save();
+    $volume->status = ($volume->status == 'active') ? 'inactive' : 'active';
     $volume->save();
-    return redirect()->route('volumes')->with('success', 'Volume updated successfully.');
+    return redirect()->route('volumes')->with('success', 'Volume  status updated successfully.');
 }
 }
 

@@ -58,7 +58,7 @@ class PaperController extends Controller
             'issue_no' => 'required',
             'paper_no' => 'required',
             'paper_title' => 'required',
-            'pdf_file' => 'required|mimes:pdf|max:2048', // Adjust max file size as needed
+            'pdf_file' => 'required|mimes:pdf', // Adjust max file size as needed
         ]);
 
         // Create a new Paper instance and fill it with form data
@@ -69,10 +69,10 @@ class PaperController extends Controller
         $paper->paper_title = $request->input('paper_title');
         $paper->paper_name = str_replace(' ', '_', $request->input('paper_title'));
         $paper->authors = $request->input('authors');
-        $paper->page_no = $request->input('page_no');
+        $paper->start_page_no = $request->input('start_page_no');
+        $paper->end_page_no = $request->input('end_page_no');
         $paper->created_by = $request->input('created_by');
-        $paper->modified_by = $request->input('modified_by');
-        $paper->modified_by = $request->input('modified_by');
+        $paper->updated_by = $request->input('updated_by');
 
         // dd($paper);
 
@@ -84,10 +84,10 @@ class PaperController extends Controller
 
             // Store the file in the appropriate directory
             // $file->storeAs('public/' . $paper->vol_no . '/' . $paper->issue_no, $fileName);
-            $file->move(storage_path('app/public/'.$paper->vol_no . '/' . $paper->issue_no),$fileName);
+            $file->move(public_path('storage_files/'.$paper->vol_no . '/' . $paper->issue_no),$fileName);
 
             // Save the file path in the database
-            $paper->file_path = 'storage/' . $paper->vol_no . '/' . $paper->issue_no . '/' . $fileName;
+            $paper->file_path = 'storage_files/' . $paper->vol_no . '/' . $paper->issue_no . '/' . $fileName;
         }
         // Save the paper record to the database
         $paper->save();
@@ -123,8 +123,9 @@ class PaperController extends Controller
             'paper_title' => $request->input('paper_title'),
             'paper_name' => str_replace(' ', '_', $request->input('paper_title')),
             'authors' => $request->input('authors'),
-            'page_no' => $request->input('page_no'),
-            'modified_by' => $request->input('modified_by'),
+            'start_page_no' => $request->input('start_page_no'),
+            'end_page_no' =>  $request->input('end_page_no'),
+            'updated_by' => $request->input('updated_by'),
             'pdf_file' => $request->input('pdf_file'),
         ]);
 
@@ -146,15 +147,9 @@ class PaperController extends Controller
     }
     public function changeStatus($vol_no, $issue_no, $paper_no){
         $paper = PaperModel::where(['vol_no' => $vol_no, 'issue_no'=>$issue_no,'paper_no'=>$paper_no])->firstOrFail();
-        // $currentStatus = $paper->status;
-        // if ($currentStatus == 'active'){
-        //     $paper->status = 'inactive';
-        // }else{
-        //     $paper->status = 'active';
-        // }
         $paper->status = ($paper->status == 'active') ? 'inactive' : 'active';
         $paper->save();
 
-        return redirect()->route('papers')->with('success', 'Paper updated successfully.');
+        return redirect()->route('papers')->with('success', 'Paper status updated successfully.');
     }
 }

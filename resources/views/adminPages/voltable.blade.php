@@ -83,7 +83,8 @@
                                     {{$volume->vol_year}}
                                 </td>
                                 <td class="px-6 py-4">
-                                    {{$volume->status}}
+                                    <a href="{{ route('volumes.changeStatus', ['vol_no' => $volume->vol_no]) }}">
+                                    {{ $volume->status }}</a>
                                 </td>
 
                                 <td class="px-6 py-4 space-x-4">

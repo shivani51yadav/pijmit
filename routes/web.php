@@ -19,12 +19,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-
-
 Route::middleware('auth')->group(function () {
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -32,6 +26,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
     Route::get('/admin', [AdminController::class, 'index']);
+    Route::get('/register', function () { return view('auth.register');})->name('register');
 
 
     // Volumes Routes
@@ -42,7 +37,7 @@ Route::middleware('auth')->group(function () {
     Route::get('volumes/{volume}/issues', [VolumeController::class, 'showIssues'])->name('volumes.issues');
     Route::get('/volumes/{vol_no}/edit', [VolumeController::class, 'edit'])->name('volumes.edit');
     Route::put('/volumes/{vol_no}', [VolumeController::class, 'update'])->name('volumes.update');
-    Route::post('volumes/{vol_no}',[VolumeController::class,'changeStatus'])->name('volumes.changeStatus');
+    Route::get('volumes/{vol_no}',[VolumeController::class,'changeStatus'])->name('volumes.changeStatus');
 
 
     //Issues Routes
@@ -55,7 +50,9 @@ Route::middleware('auth')->group(function () {
     Route::put('issues/update/{issue_no}/{vol_no}', [IssueController::class, 'update'])->name('issues.update');
     Route::get('/get-issues/{vol_no}',  [IssueController::class, 'getIssues']);
     Route::get('/issue/search/{keyword}', [IssueController::class, 'search']);
-    Route::post('issues/{vol_no}/{issue_no}',[IssueController::class,'changeStatus'])->name('issues.changeStatus');
+    Route::get('issues/{vol_no}/{issue_no}',[IssueController::class,'changeStatus'])->name('issues.changeStatus');
+    Route::get('/current-issue', [IssueController::class,'currentIssue'])->name('auth.current-issue');
+    Route::get('/old-issue', [IssueController::class, 'oldIssue'])->name('auth.old-issue');
 
 
     //Papers Routes
@@ -65,7 +62,6 @@ Route::middleware('auth')->group(function () {
     Route::post('/papers/store/', [PaperController::class, 'store'])->name('papers.store');
     Route::get('papers/{vol_no}/{issue_no}/{paper_no}/edit', [PaperController::class, 'edit'])->name('papers.edit');
     Route::put('papers/{vol_no}/{issue_no}/{paper_no}', [PaperController::class, 'update'])->name('papers.update');
-    // Route::post('papers/{vol_no}/{issue_no}/{paper_no}',[PaperController::class,'changeStatus'])->name('papers.changeStatus');
     Route::get('/change-status/{vol_no}/{issue_no}/{paper_no}', [PaperController::class,'changeStatus'])->name('papers.changeStatus');
 
 });
